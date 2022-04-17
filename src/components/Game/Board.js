@@ -1,5 +1,5 @@
 import Square from "./Square";
-import React, { Component } from 'react';
+import React, {  } from 'react';
 
 class Board extends React.Component {
   render() {
@@ -9,7 +9,7 @@ class Board extends React.Component {
         { board.map((j,row)=> 
           <div className="board-row" key={j}>
             {j.map((i)=>
-              <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)}/>
+              <Square key={i} value={this.props.squares[i]} onClick={() => this.props.onClick(i)}/>
             )}
           </div>
         )}

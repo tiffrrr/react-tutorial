@@ -1,7 +1,7 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
 import Board from './Board';
-
+import './ox.css'
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
