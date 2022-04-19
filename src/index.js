@@ -12,6 +12,7 @@ import {
 
 import Game from './components/Game';
 import Checkbox from './components/Checkbox';
+import FixedBar from './components/FixedBar';
 
 
 // ========================================
@@ -26,12 +27,15 @@ ReactDOM.render(
         </div>
         <div className='nav-item'>
             <Link to="/checkbox">Checkbox</Link>
-
+        </div>
+        <div className='nav-item'>
+            <Link to="/fixedbar">FixedBar</Link>
         </div>
     </div>
     <Routes>
       <Route path='/' element={<Game/>} />
       <Route path='/checkbox' element={<Checkbox/>} />
+      <Route path='/fixedbar' element={<FixedBar/>} />
     </Routes>
   </Router>,
 

@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+    
+}
+.block{
+    height: 300px;
+    border: 1px solid #cdcdcd;
+}
+.bar{
+    background-color: #2e2e2e;
+    color: #fff;
+    text-align: center;
+    height:30px;
+    width: 100%;
+}
+.bar.is-fixed{
+    position: fixed;
+    bottom:0;
+}
+footer{
+    background-color: #cdcdcd;
+    height: 200px;
+    
+}
+@media screen and (min-width:768px){
+    .bar{
+        height:56px;
+        line-height: 56px;
+    }
+}
