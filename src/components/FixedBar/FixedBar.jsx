@@ -1,14 +1,25 @@
-import  React,{useState,useMemo,useEffect,useRef} from 'react';
+import  React,{useState,useEffect,useRef} from 'react';
+
+// redux
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import style from './fixedbar.module.css';
 
 
 const Page = () => {
 
+    // demo: redux state and dispatch
+    const info = useSelector(state => {
+        console.log('redux state',state)
+        return state.infoReducer.info;
+    });
+    const dispatch = useDispatch();
+
+
     // // state
     const [isButtonBarFixed,setButtonBarFixed] = useState(true);
     const [buttonBarHeight,setButtonBarHeight] = useState(0);
-
     const barRef = useRef(null);
     const footerRef = useRef(null);
     const buttonBarHeightRef = useRef(buttonBarHeight)
@@ -23,14 +34,21 @@ const Page = () => {
         if(footerOffsetTop > windowHeight && !buttonBarHeightRef.current) {
             setButtonBarFixed(true)
             buttonBarHeightRef.current = true;
+            dispatch({
+                type: "CHANGE",
+                payload: 'fix',
+            })
             console.log('Fix')
         }
         // no fix 
         if(footerOffsetTop <= windowHeight && buttonBarHeightRef.current){
-            console.log('set noFix')
             setButtonBarFixed(false);
             buttonBarHeightRef.current = false;
-
+            dispatch({
+                type: "CHANGE",
+                payload: 'no fix',
+            })
+            console.log('set noFix')
         }
     }
     function resize(){
@@ -53,7 +71,7 @@ const Page = () => {
         <>
             <div className={style['block']}>1</div>
             <div className={style['block']}>1</div>
-            <div className={style['block']}>1</div>
+            <div className={style['block']}>{info}</div>
             <div style={{height:buttonBarHeight|| 0 }}>
                 <div ref={barRef} className={`${style['bar']} ${style[isButtonBarFixed?'is-fixed':'']}`}>bar</div>
 
