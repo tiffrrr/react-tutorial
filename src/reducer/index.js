@@ -2,11 +2,11 @@
 import { combineReducers } from 'redux';
 
 import infoReducer from './infoReducer';
-import dataReducer from './dataReducer';
+import anchorReducer from './anchorReducer';
 
 const rootReducer = combineReducers({
     infoReducer,
-    dataReducer,
+    anchorReducer,
 });
 
 export default rootReducer;

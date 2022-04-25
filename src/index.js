@@ -18,31 +18,37 @@ import './index.css';
 import Game from './components/Game';
 import Checkbox from './components/Checkbox';
 import FixedBar from './components/FixedBar';
+import AnchorPage from './components/AnchorPage';
 
 
 // ========================================
 // <Router>外層 <Provider>內層
+const nav = [
+  {link:'/',component:'Game'},
+  {link:'/checkbox',component:'Checkbox'},
+  {link:'/fixedbar',component:'FixedBar'},
+  {link:'/anchor',component:'Anchor'},
+]
 ReactDOM.render(
-
   <Router>
     <Provider store={store}>
-      <div style={{padding:'20px'}}>
-          <div className='nav-item'>
-              <Link to="/">Game  </Link>
-              
-          </div>
-          <div className='nav-item'>
-              <Link to="/checkbox">Checkbox</Link>
-          </div>
-          <div className='nav-item'>
-              <Link to="/fixedbar">FixedBar</Link>
-          </div>
-      </div>
       <Routes>
         <Route path='/' element={<Game/>} />
         <Route path='/checkbox' element={<Checkbox/>} />
         <Route path='/fixedbar' element={<FixedBar/>} />
+        <Route path='/anchor' element={<AnchorPage/>} />
       </Routes>
+      <div style={{padding:'20px'}}>
+          {
+            nav.map((element,index) => {
+              return(
+                <div className='nav-item' key={index}>
+                    <Link to={element.link}>{element.component}  </Link>
+                </div>
+              )
+            })
+          }
+      </div>
     </Provider>
   </Router>,
 

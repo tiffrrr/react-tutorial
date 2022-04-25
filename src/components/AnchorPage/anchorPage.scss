@@ -1,0 +1,94 @@
+@mixin mobile {
+    @media only screen and (max-width: 767px) {
+    @content;
+    }
+}
+@mixin desktop {
+    @media only screen and (min-width:768px) {
+    @content;
+    }
+}
+.anchor-page{
+
+    .is-fixed{
+        position: fixed;
+        left:0;
+        width: 100%;
+        top: 0px;
+        transition: all 1s;
+    }
+    .fake-header .is-fixed{
+        z-index: 2;
+    }
+    .fake-header .is-hide{
+        display: none;
+        // top: -130px;
+        // transition: all 1s;
+            // top: -130px;
+            // animation: backdrop-in 1s ease-in-out;
+            // animation-fill-mode: forwards;
+    }
+    @keyframes backdrop-in{
+        from{top: 0px;}
+        to{top: -130px;}
+    }
+    .fake-anchor .is-fixed{
+        z-index: 2;
+    }
+    .fake-header{
+        height: 60px;
+        background-color: #f5f5fa;
+    }
+    header{
+        height: 60px;
+        position: relative;
+        background-color: #f5f5fa;
+        padding: 0px 20px;
+        display: flex;
+    }
+    
+    .logo{
+        width: 60px;
+        height: 60px;
+        background-color: #dc4200;
+        @include desktop{
+            width: 120px;
+            height: 130px;
+            position: absolute;
+            left: 20px;
+        }
+    }
+    .header-menu{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f5f5fa;
+        min-height: 100vh;
+        overflow: auto;
+
+        @include desktop{
+            display: none;
+        }
+
+    }
+}
+
+.anchor-page{
+    .fake-anchor{
+        height: 88px;
+    }
+    .anchor{
+        height: 88px;
+        border-bottom: 2px solid #cfcfdc;
+        background-color: #cfcfdc;
+    }
+}
+
+
+.anchor-page{
+    .block{
+        height: 300px;
+        background-color: #dccfcf;
+    }
+}
