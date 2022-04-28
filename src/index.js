@@ -8,6 +8,8 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 // redux
 import { Provider } from 'react-redux';
@@ -29,8 +31,20 @@ const nav = [
   {link:'/fixedbar',component:'FixedBar'},
   {link:'/anchor',component:'Anchor'},
 ]
+// make page scroll to top when router changes
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 ReactDOM.render(
   <Router>
+    <ScrollToTop></ScrollToTop>
     <Provider store={store}>
       <Routes>
         <Route path='/' element={<Game/>} />
