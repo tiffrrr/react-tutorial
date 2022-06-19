@@ -1,4 +1,4 @@
-import  React,{useState,useEffect,useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // redux
 import { useSelector } from 'react-redux';
@@ -16,24 +16,28 @@ const Header = () => {
     const isAnchorFixed = useSelector(state => {
         return state.anchorReducer.isAnchorFixed
     })
-    useEffect(() => {
-        document.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset
-                || document.documentElement.scrollTop
-                || document.body.scrollTop;
-        
-            if (scrollTop > 0) {
-                if (!headerFixed) {
-                    setHeaderFixed(true);
-                }
-            } else {
-                if (!headerFixed) {
-                    setHeaderFixed(false);
-                }
+    function toggleHeaderFix() {
+        let scrollTop = window.pageYOffset
+            || document.documentElement.scrollTop
+            || document.body.scrollTop;
+
+        if (scrollTop > 0) {
+            if (!headerFixed) {
+                setHeaderFixed(true);
             }
-            });
-        }, []);
-    return(
+        } else {
+            if (!headerFixed) {
+                setHeaderFixed(false);
+            }
+        }
+    }
+    useEffect(() => {
+        document.addEventListener('scroll', toggleHeaderFix);
+        return () => {
+            document.removeEventListener('scroll', toggleHeaderFix);
+        };
+    }, []);
+    return (
         <>
             <div className='fake-header'>
                 <div className={`${headerFixed ? 'is-fixed' : ''} ${isAnchorFixed ? 'is-hide' : ''}`}>
@@ -41,16 +45,16 @@ const Header = () => {
                         <div className="logo">logo</div>
                         <div className="menu-icon" onClick={toggleMenu}>三</div>
                         {
-                            menuOpen?
-                            (<div className="header-menu">
-                                <div className="menu-icon" onClick={toggleMenu}>三</div>
-                                content
-                                content
-                            </div>)
-                            :null
+                            menuOpen ?
+                                (<div className="header-menu">
+                                    <div className="menu-icon" onClick={toggleMenu}>三</div>
+                                    content
+                                    content
+                                </div>)
+                                : null
                         }
                     </header>
-                    
+
                 </div>
             </div>
         </>
