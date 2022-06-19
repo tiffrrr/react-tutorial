@@ -21,15 +21,19 @@ import Game from './components/Game';
 import Checkbox from './components/Checkbox';
 import FixedBar from './components/FixedBar';
 import AnchorPage from './components/AnchorPage';
+import CalendarPage from './components/CalendarPage';
 
 
+// antd
+import 'antd/dist/antd.css';
 // ========================================
 // <Router>外層 <Provider>內層
 const nav = [
-  {link:'/',component:'Game'},
-  {link:'/checkbox',component:'Checkbox'},
-  {link:'/fixedbar',component:'FixedBar'},
-  {link:'/anchor',component:'Anchor'},
+  { link: '/', component: 'Game' },
+  { link: '/checkbox', component: 'Checkbox' },
+  { link: '/fixedbar', component: 'FixedBar' },
+  { link: '/anchor', component: 'Anchor' },
+  { link: '/calendarpage', component: 'CalendarPage' },
 ]
 // make page scroll to top when router changes
 function ScrollToTop() {
@@ -47,21 +51,22 @@ ReactDOM.render(
     <ScrollToTop></ScrollToTop>
     <Provider store={store}>
       <Routes>
-        <Route path='/' element={<Game/>} />
-        <Route path='/checkbox' element={<Checkbox/>} />
-        <Route path='/fixedbar' element={<FixedBar/>} />
-        <Route path='/anchor' element={<AnchorPage/>} />
+        <Route path='/' element={<Game />} />
+        <Route path='/checkbox' element={<Checkbox />} />
+        <Route path='/fixedbar' element={<FixedBar />} />
+        <Route path='/anchor' element={<AnchorPage />} />
+        <Route path='/calendarpage' element={<CalendarPage />} />
       </Routes>
-      <div style={{padding:'20px'}}>
-          {
-            nav.map((element,index) => {
-              return(
-                <div className='nav-item' key={index}>
-                    <Link to={element.link}>{element.component}  </Link>
-                </div>
-              )
-            })
-          }
+      <div style={{ padding: '20px' }}>
+        {
+          nav.map((element, index) => {
+            return (
+              <div className='nav-item' key={index}>
+                <Link to={element.link}>{element.component}  </Link>
+              </div>
+            )
+          })
+        }
       </div>
     </Provider>
   </Router>,
