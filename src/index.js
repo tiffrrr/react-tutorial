@@ -22,6 +22,7 @@ import Checkbox from './components/Checkbox';
 import FixedBar from './components/FixedBar';
 import AnchorPage from './components/AnchorPage';
 import CalendarPage from './components/CalendarPage';
+import Collapse from './components/Collapse';
 
 
 // antd
@@ -34,6 +35,7 @@ const nav = [
   { link: '/fixedbar', component: 'FixedBar' },
   { link: '/anchor', component: 'Anchor' },
   { link: '/calendarpage', component: 'CalendarPage' },
+  { link: '/collapse', component: 'Collapse' },
 ]
 // make page scroll to top when router changes
 function ScrollToTop() {
@@ -56,6 +58,7 @@ ReactDOM.render(
         <Route path='/fixedbar' element={<FixedBar />} />
         <Route path='/anchor' element={<AnchorPage />} />
         <Route path='/calendarpage' element={<CalendarPage />} />
+        <Route path='/collapse' element={<Collapse />} />
       </Routes>
       <div style={{ padding: '20px' }}>
         {
