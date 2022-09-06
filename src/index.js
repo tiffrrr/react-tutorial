@@ -24,6 +24,7 @@ import AnchorPage from './components/AnchorPage';
 import CalendarPage from './components/CalendarPage';
 import Collapse from './components/Collapse';
 import Modal from './components/Modal';
+import Nav from './components/Nav';
 
 
 // antd
@@ -38,6 +39,7 @@ const nav = [
   { link: '/calendarpage', component: 'CalendarPage' },
   { link: '/collapse', component: 'Collapse' },
   { link: '/modal', component: 'Modal' },
+  { link: '/nav', component: 'Nav' },
 ]
 // make page scroll to top when router changes
 function ScrollToTop() {
@@ -62,6 +64,7 @@ ReactDOM.render(
         <Route path='/calendarpage' element={<CalendarPage />} />
         <Route path='/collapse' element={<Collapse />} />
         <Route path='/modal' element={<Modal />} />
+        <Route path='/nav' element={<Nav />} />
       </Routes>
       <div style={{ padding: '20px' }}>
         {
