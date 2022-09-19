@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef,forwardRef } from 'react';
 import './nav.scss';
 
 const Nav = () => {
@@ -16,6 +16,8 @@ const Nav = () => {
         )
 
     }
+   
+   
     return (
         <div>
             <ul className={`header__content--left`}>
@@ -50,6 +52,7 @@ const Nav = () => {
             </ul>
             <div>手機版</div>
             <MenuItemOnMobile></MenuItemOnMobile>
+
         </div>
     )
 }
