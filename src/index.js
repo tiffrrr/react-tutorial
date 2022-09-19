@@ -25,6 +25,7 @@ import CalendarPage from './components/CalendarPage';
 import Collapse from './components/Collapse';
 import Modal from './components/Modal';
 import Nav from './components/Nav';
+import DatepickerPage from './components/DatepickerPage';
 
 
 // antd
@@ -40,6 +41,7 @@ const nav = [
   { link: '/collapse', component: 'Collapse' },
   { link: '/modal', component: 'Modal' },
   { link: '/nav', component: 'Nav' },
+  { link: '/datepickerPage', component: 'DatepickerPage' },
 ]
 // make page scroll to top when router changes
 function ScrollToTop() {
@@ -65,6 +67,7 @@ ReactDOM.render(
         <Route path='/collapse' element={<Collapse />} />
         <Route path='/modal' element={<Modal />} />
         <Route path='/nav' element={<Nav />} />
+        <Route path='/datepickerPage' element={<DatepickerPage />} />
       </Routes>
       <div style={{ padding: '20px' }}>
         {
