@@ -24,6 +24,17 @@ const CustomDatePicker = (props) => {
 
         )
     });
+    const days = ['日', '一', '二', '三', '四', '五', '六']
+    const months = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+    const locale = {
+    localize: {
+        day: n => days[n],
+        month: n => months[n]
+    },
+    formatLong: {
+        date: () => 'yyyy/mm/dd'
+    }
+    }
 
 
 
@@ -41,7 +52,8 @@ const CustomDatePicker = (props) => {
                 maxDate={maxDate}
                 placeholderText={placeholder}
                 disabled={disabled}
-                onChange={onChange}     
+                onChange={onChange}
+                locale={locale}     
     
                 showPopperArrow={false}
                 todayButton="Today"
